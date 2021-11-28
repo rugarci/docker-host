@@ -63,7 +63,7 @@ jobs:
       env:
         DOCKER_CLI_EXPERIMENTAL: enabled
       run: |
-        DOCKER_REPOSITORY="$GITHUB_REPOSITORY"
+        DOCKER_REPOSITORY="$DOCKERHUB_REPOSITORY"
         DOCKER_TAGS=()
         
         if [ "${GITHUB_BRANCH}" ]
