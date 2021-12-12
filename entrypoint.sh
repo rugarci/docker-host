@@ -10,7 +10,8 @@ fi
 
 # --- Ensure container network capabilities ----------------------------------
 
-if ! capsh --has-p='cap_net_admin' --has-p='cap_net_raw' &>/dev/null
+#if ! capsh --has-p='cap_net_admin' --has-p='cap_net_raw' &>/dev/null
+if ! capsh --supports='cap_net_admin' --supports='cap_net_raw' &>/dev/null
 then
   echo "[ERROR] docker-host container needs Linux capabilities NET_ADMIN and NET_RAW"
   echo "  e.g 'docker run --cap-add=NET_ADMIN --cap-add=NET_RAW ...'"
