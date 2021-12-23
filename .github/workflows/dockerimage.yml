@@ -47,9 +47,9 @@ jobs:
         docker buildx create --name builder --use
         docker buildx inspect --bootstrap
         docker buildx build . \
+          --build-arg VERSION=$TARGET_VERSION --build-arg VCS_REF=${GITHUB_SHA::7} --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
           --platform "${{ env.DOCKER_BUILDX_PLATFORM }}"
         docker buildx build . \
-          --build-arg VERSION=$TARGET_VERSION --build-arg VCS_REF=${GITHUB_SHA::7} --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
           --tag local/docker-host \
           --load
     
