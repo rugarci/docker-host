@@ -30,8 +30,8 @@ jobs:
           echo "GITHUB_TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
         fi
     
-    - name: lint dockerfile
-      run: docker run --rm -v "$PWD/Dockerfile:/Dockerfile:ro" redcoolbeans/dockerlint
+#     - name: lint dockerfile
+#       run: docker run --rm -v "$PWD/Dockerfile:/Dockerfile:ro" redcoolbeans/dockerlint
     
     - name: install docker buildx
       id: buildx
